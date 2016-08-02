@@ -24,7 +24,7 @@ download_cross_compiler() {
   url="http://landley.net/aboriginal/downloads/binaries/cross-compiler-i686.tar.gz"
   archive=`basename "${url}"`
   log "Downloading cross compiler archive from ${url} to ${ievms_home}/${archive}"
-  if [[ ! -e "${archive}" ]] && ! curl -L "${url}" -o "${archive}"
+  if [[ ! -e "${archive}" ]] && ! curl -sL "${url}" -o "${archive}"
   then
     fail "Failed to download ${url} to ${ievms_home}/${archive} using 'curl', error code ($?)"
   fi
@@ -43,7 +43,7 @@ download_kernel() {
   url="http://www.kernel.org/pub/linux/kernel/v3.0/linux-3.5.tar.bz2"
   archive=`basename "${url}"`
   log "Downloading kernel archive from ${url} to ${ievms_home}/${archive}"
-  if [[ ! -e "${archive}" ]] && ! curl -L "${url}" -o "${archive}"
+  if [[ ! -e "${archive}" ]] && ! curl -sL "${url}" -o "${archive}"
   then
     fail "Failed to download ${url} to ${ievms_home}/${archive} using 'curl', error code ($?)"
   fi  
